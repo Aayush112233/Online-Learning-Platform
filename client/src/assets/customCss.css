@@ -1,0 +1,52 @@
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.status {
+  position: relative;
+  height: 1em;
+  margin: auto;
+  line-height: 1em;
+  padding: 0.5em;
+  padding-left: 2em;
+  transition: color 500ms;
+}
+.status:before,
+.status:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  transition: all 500ms;
+}
+.status.-pending {
+  color: #666;
+}
+.status.-pending:before,
+.status.-pending:after {
+  background: #888;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.status.-pending:before {
+  width: 0.25em;
+  height: 0.25em;
+  top: 0.5em;
+  left: 0.875em;
+  border-radius: 0.125em;
+  transform-origin: 50% 0.5em;
+}
+.status.-pending:after {
+  width: 0.25em;
+  height: 0.25em;
+  top: 1.25em;
+  left: 0.875em;
+  border-radius: 0.125em;
+  transform-origin: 50% -0.25em;
+}
